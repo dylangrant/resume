@@ -1,0 +1,24 @@
+{
+  "name": "resume",
+  "version": "1.0.0",
+  "description": "html version of my resume, with json represenation for ai custom resume generation",
+  "homepage": "https://github.com/dylangrant/resume#readme",
+  "bugs": {
+    "url": "https://github.com/dylangrant/resume/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dylangrant/resume.git"
+  },
+  "license": "ISC",
+  "author": "Dylan Grant",
+  "type": "module",
+  "main": "resume.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "htmlparser2": "^12.0.0",
+    "rambda": "^11.2.0"
+  }
+}
