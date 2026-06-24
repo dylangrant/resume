@@ -2,10 +2,12 @@
   {
     "type": "header",
     "id": "header",
+    "className": "header",
     "children": [
       {
         "type": "heading-one",
         "id": "name",
+        "className": "name",
         "editable": false,
         "children": [
           {
@@ -40,10 +42,12 @@
   {
     "type": "section",
     "id": "summary",
+    "className": "section",
     "children": [
       {
         "type": "heading-two",
         "id": "summary-heading",
+        "className": "section-heading",
         "editable": false,
         "children": [
           {
@@ -54,6 +58,7 @@
       {
         "type": "paragraph",
         "id": "summary-p1",
+        "className": "body-text",
         "editable": true,
         "children": [
           {
@@ -64,6 +69,7 @@
       {
         "type": "paragraph",
         "id": "summary-p2",
+        "className": "body-text",
         "editable": true,
         "children": [
           {
@@ -74,6 +80,7 @@
       {
         "type": "paragraph",
         "id": "summary-p3",
+        "className": "body-text",
         "editable": true,
         "children": [
           {
@@ -86,10 +93,12 @@
   {
     "type": "section",
     "id": "skills",
+    "className": "section",
     "children": [
       {
         "type": "heading-two",
         "id": "skills-heading",
+        "className": "section-heading",
         "editable": false,
         "children": [
           {
@@ -114,6 +123,7 @@
           },
           {
             "type": "paragraph",
+            "className": "body-text",
             "editable": true,
             "children": [
               {
@@ -140,6 +150,7 @@
           },
           {
             "type": "paragraph",
+            "className": "body-text",
             "editable": true,
             "children": [
               {
@@ -166,6 +177,7 @@
           },
           {
             "type": "paragraph",
+            "className": "body-text",
             "editable": true,
             "children": [
               {
@@ -192,6 +204,7 @@
           },
           {
             "type": "paragraph",
+            "className": "body-text",
             "editable": true,
             "children": [
               {
@@ -218,6 +231,7 @@
           },
           {
             "type": "paragraph",
+            "className": "body-text",
             "editable": true,
             "children": [
               {
@@ -232,10 +246,12 @@
   {
     "type": "section",
     "id": "experience",
+    "className": "section",
     "children": [
       {
         "type": "heading-two",
         "id": "experience-heading",
+        "className": "section-heading",
         "editable": false,
         "children": [
           {
@@ -283,6 +299,7 @@
           {
             "type": "bulleted-list",
             "id": "job-uguru-bullets",
+            "className": "job-bullets",
             "reorderable": true,
             "children": [
               {
@@ -392,6 +409,7 @@
           {
             "type": "bulleted-list",
             "id": "job-talkoot-bullets",
+            "className": "job-bullets",
             "reorderable": true,
             "children": [
               {
@@ -492,6 +510,7 @@
           {
             "type": "bulleted-list",
             "id": "job-minnesota-state-bullets",
+            "className": "job-bullets",
             "reorderable": true,
             "children": [
               {
@@ -565,6 +584,7 @@
           {
             "type": "bulleted-list",
             "id": "job-ph27-bullets",
+            "className": "job-bullets",
             "reorderable": true,
             "children": [
               {
@@ -647,6 +667,7 @@
           {
             "type": "bulleted-list",
             "id": "job-talentful-bullets",
+            "className": "job-bullets",
             "reorderable": true,
             "children": [
               {
@@ -676,10 +697,12 @@
   {
     "type": "section",
     "id": "additional-experience",
+    "className": "section",
     "children": [
       {
         "type": "heading-two",
         "id": "additional-experience-heading",
+        "className": "section-heading",
         "editable": false,
         "children": [
           {
@@ -845,10 +868,12 @@
   {
     "type": "section",
     "id": "education",
+    "className": "section",
     "children": [
       {
         "type": "heading-two",
         "id": "education-heading",
+        "className": "section-heading",
         "editable": false,
         "children": [
           {
@@ -859,6 +884,7 @@
       {
         "type": "paragraph",
         "id": "education-degree",
+        "className": "body-text",
         "editable": false,
         "children": [
           {

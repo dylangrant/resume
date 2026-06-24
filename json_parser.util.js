@@ -1,100 +1,57 @@
-import {
-  concat,
-  find,
-  intersperse,
-  isEmpty,
-  isNil,
-} from 'rambda'
+import { CLASS_TYPE_TAG_MAP, HTML_SHELL, TYPE_TAG_MAP } from './constants.js'
 
-import { contentGroupTypes } from '../constants'
+// Sibling groups containing one of these types get a blank line between
+// each child, matching how the base resume separates repeated blocks
+// (skill groups, job entries) but not consecutive headings/paragraphs.
+const BLOCK_TYPES = new Set(['skills-group', 'job'])
 
-export const getCopyValues = (editedProducts, product) => {
-  if (isEmpty(editedProducts)) return product
+const escapeHtml = text => text
+  .replace(/&/g, '&amp;')
+  .replace(/</g, '&lt;')
+  .replace(/>/g, '&gt;')
 
-  const predicate = item => item.productId === product.productId
-  const currentProduct = find(predicate, editedProducts)
-  if (!currentProduct) return product
+const resolveTag = type => CLASS_TYPE_TAG_MAP[type] || TYPE_TAG_MAP[type] || type
 
-  const copyUpdates = currentProduct.sessionUpdates
-  // Find if there are the edited items are for the product
-  const title = getTitle(copyUpdates, product)
-  const descriptions = getData(copyUpdates, product, contentGroupTypes.DESCRIPTION)
-  const metafields = getData(copyUpdates, product, contentGroupTypes.METAFIELDS)
+const buildClassList = node => CLASS_TYPE_TAG_MAP[node.type]
+  ? [node.type, ...(node.className ? node.className.split(' ') : [])]
+  : (node.className ? node.className.split(' ') : [])
 
-  return {
-    ...product,
-    descriptions,
-    metafields,
-    title,
-  }
+const buildAttrs = node => {
+  const classList = buildClassList(node)
+
+  const attrs = [
+    node.id && `id="${node.id}"`,
+    classList.length > 0 && `class="${classList.join(' ')}"`,
+    node.editable !== undefined && `data-editable="${node.editable}"`,
+    node.reorderable !== undefined && `data-reorderable="${node.reorderable}"`,
+  ].filter(Boolean)
+
+  return attrs.length > 0 ? ` ${attrs.join(' ')}` : ''
 }
 
-export const getTitle = (copyUpdates, product) => !!copyUpdates.title
-  ? copyUpdates.title
-  : !!product?.title
-    ? product.title
-    : ""
+const renderNode = (node, depth) => {
+  const indent = '  '.repeat(depth)
+  const tag = resolveTag(node.type)
+  const attrs = buildAttrs(node)
 
-export const getData = (copyUpdates, product, groupType) => {
-  const updatedData = isNil(copyUpdates[groupType])
-    ? product[groupType]
-    : product[groupType].map(description => {
-      const predicate = item => item.productId === description.productId
-      const sessionUpdate = find(predicate, copyUpdates[groupType])
+  const isTextLeaf = node.children.length === 1 && node.children[0].text !== undefined
 
-      return isNil(sessionUpdate)
-        ? description
-        : sessionUpdate
-    })
-
-  return updatedData
-}
-
-export const mapRteNodes = copyBlock => {
-  if (isEmpty(copyBlock)) return
-  const elements = copyBlock?.elements.map(element => mapChildren(element))
-
-  return {
-    ...copyBlock,
-    elements,
-  }
-}
-
-const mapChildren = element => {
-  // Need to check this for bullets that don't have a ul
-  if (!element?.children) return buildRteText(element)
-
-  const children = isEmpty(element.children)
-    ? [{ text: "" }]
-    : element.children.map(child => {
-      // Because we try to keep the UI consistent until refresh, check for an array - this will be only for <li>'s
-      const isArray = Array.isArray(child)
-
-      return isArray
-        ? child.map(trueChild => mapChildren(trueChild))
-        : !!child?.children
-          ? mapChildren(child)
-          : buildRteText(child)
-    })
-
-  return {
-    ...element,
-    children,
-  }
-}
-
-// This is to prevent falsy strings from breaking the RTE
-export const buildRteText = item => !!item?.text
-  ? item
-  : {
-    text: "",
+  if (isTextLeaf) {
+    return `${indent}<${tag}${attrs}>${escapeHtml(node.children[0].text)}</${tag}>`
   }
 
-export const rteToString = (array, separator = ' ') => {
-  const newArray = intersperse(separator, array)
+  const innerHtml = renderChildren(node.children, depth + 1)
+  return `${indent}<${tag}${attrs}>\n${innerHtml}\n${indent}</${tag}>`
+}
 
-  return newArray.reduce((accum, item) => {
-    const newAccum = concat(accum, item)
-    return newAccum
-  }, '')
+const renderChildren = (nodes, depth, { forceBlank = false } = {}) => {
+  const useBlankSeparator = forceBlank || nodes.some(node => BLOCK_TYPES.has(node.type))
+  const separator = useBlankSeparator ? '\n\n' : '\n'
+
+  return nodes.map(node => renderNode(node, depth)).join(separator)
+}
+
+export const jsonToHtml = nodes => {
+  const content = renderChildren(nodes, 2, { forceBlank: true })
+  return `${HTML_SHELL.before}${content}${HTML_SHELL.after}\n`
 }
