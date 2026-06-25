@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html id="html" lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dylan Grant - Resume</title>
+<head id="head">
+  <meta id="meta-charset" charset="UTF-8">
+  <meta id="meta-viewport" name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">Dylan Grant - Resume</title>
 
-  <link rel="stylesheet" href="style.css">
+  <link id="stylesheet" rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body id="body">
   <main id="resume" class="resume">
 
     <header id="header" class="header">
@@ -34,39 +34,46 @@
         the bar.</p>
     </section>
 
-    <section id="skills" class="section">
+    <section id="skills" class="section" data-has-reorderable="true">
       <h2 id="skills-heading" class="section-heading" data-editable="false">Skills</h2>
 
       <div id="skills-leadership" class="skills-group" data-reorderable="true">
-        <h3 class="skills-label" data-editable="false">Engineering Leadership and Delivery:</h3>
-        <p class="body-text" data-editable="true">Team Building, Organizational Design, Hiring and Scaling Teams,
+        <h3 id="skills-leadership-label" class="skills-label" data-editable="false">Engineering Leadership and Delivery:
+        </h3>
+        <p id="skills-leadership-body" class="body-text" data-editable="true">Team Building, Organizational Design,
+          Hiring and Scaling Teams,
           Performance Management, Career Development, Coaching and Mentorship, Technical Roadmapping, Delivery
           Predictability, Stakeholder Alignment, Agile Delivery, Scrum, Sprint Planning, Incident Management, Headcount
           Planning</p>
       </div>
 
       <div id="skills-product" class="skills-group" data-reorderable="true">
-        <h3 class="skills-label" data-editable="false">Product and Business Impact:</h3>
-        <p class="body-text" data-editable="true">Cross-Functional Leadership, Roadmap Ownership, Engineering Metrics,
+        <h3 id="skills-product-label" class="skills-label" data-editable="false">Product and Business Impact:</h3>
+        <p id="skills-product-body" class="body-text" data-editable="true">Cross-Functional Leadership, Roadmap
+          Ownership, Engineering Metrics,
           Revenue-Focused Delivery, Process Improvement</p>
       </div>
 
       <div id="skills-technical" class="skills-group" data-reorderable="true">
-        <h3 class="skills-label" data-editable="false">Technical Strategy and Architecture:</h3>
-        <p class="body-text" data-editable="true">Frontend Architecture, Design Systems, System Design, Scalability,
+        <h3 id="skills-technical-label" class="skills-label" data-editable="false">Technical Strategy and Architecture:
+        </h3>
+        <p id="skills-technical-body" class="body-text" data-editable="true">Frontend Architecture, Design Systems,
+          System Design, Scalability,
           Performance Optimization, Technical Debt Management</p>
       </div>
 
       <div id="skills-stack" class="skills-group" data-reorderable="true">
-        <h3 class="skills-label" data-editable="false">Technology Stack:</h3>
-        <p class="body-text" data-editable="true">JavaScript, TypeScript, React, Node.js, GraphQL, REST APIs, Neo4j,
+        <h3 id="skills-stack-label" class="skills-label" data-editable="false">Technology Stack:</h3>
+        <p id="skills-stack-body" class="body-text" data-editable="true">JavaScript, TypeScript, React, Node.js,
+          GraphQL, REST APIs, Neo4j,
           MongoDB, Postgres</p>
       </div>
 
       <div id="skills-infra" class="skills-group" data-reorderable="true">
-        <h3 class="skills-label" data-editable="false">Infrastructure and Tooling:</h3>
-        <p class="body-text" data-editable="true">CI/CD (GitHub Actions), Azure, AWS, Docker, Vercel, Render,
-          Observability &amp; Monitoring, Analytics (Google Analytics, PostHog), Product Analytics (Mixpanel,
+        <h3 id="skills-infra-label" class="skills-label" data-editable="false">Infrastructure and Tooling:</h3>
+        <p id="skills-infra-body" class="body-text" data-editable="true">CI/CD (GitHub Actions), Azure, AWS, Docker,
+          Vercel, Render,
+          Observability & Monitoring, Analytics (Google Analytics, PostHog), Product Analytics (Mixpanel,
           Userpilot), AI-Assisted Development (Copilot, Codex, Claude), Workflow Automation (n8n), Figma</p>
       </div>
     </section>
@@ -78,24 +85,32 @@
         <h3 id="job-uguru-company" class="job-company" data-editable="false">uGuru Data Sciences</h3>
         <p id="job-uguru-role" class="job-role" data-editable="false">Engineering Manager</p>
         <p id="job-uguru-dates" class="job-dates" data-editable="false">Nov 2021 - Sept 2024</p>
-        <ul id="job-uguru-bullets" class="job-bullets" data-reorderable="true">
-          <li data-editable="true">Inherited a single undifferentiated engineering team and transformed it into a
+        <ul id="job-uguru-bullets" class="job-bullets" data-has-reorderable="true"
+          data-context="uGuru Data Sciences | Engineering Manager">
+          <li id="job-uguru-bullet-1" data-editable="true" data-reorderable="true">Inherited a single undifferentiated
+            engineering team and transformed it into a
             structured, high-performing organization with dedicated frontend and backend teams, hiring and onboarding 6
             engineers while maintaining delivery momentum on an active B2B SaaS platform.</li>
-          <li data-editable="true">Led a full architectural modernization of a legacy platform, identifying the
+          <li id="job-uguru-bullet-2" data-editable="true" data-reorderable="true">Led a full architectural
+            modernization of a legacy platform, identifying the
             technical debt ceiling, making the case to leadership, and driving execution across the team from monolith
             to modern stack.</li>
-          <li data-editable="true">Reduced time-to-interactive on a critical platform page from 20 minutes to 2 minutes
+          <li id="job-uguru-bullet-3" data-editable="true" data-reorderable="true">Reduced time-to-interactive on a
+            critical platform page from 20 minutes to 2 minutes
             following the architecture modernization, measured via Chrome DevTools performance profiling.</li>
-          <li data-editable="true">Bridged engineering, product, and customer stakeholders, converting ambiguous
+          <li id="job-uguru-bullet-4" data-editable="true" data-reorderable="true">Bridged engineering, product, and
+            customer stakeholders, converting ambiguous
             business objectives into clear technical roadmaps and shipped outcomes by establishing consistent
             communication and shared accountability across teams.</li>
-          <li data-editable="true">Owned delivery outcomes across the engineering organization, improving
+          <li id="job-uguru-bullet-5" data-editable="true" data-reorderable="true">Owned delivery outcomes across the
+            engineering organization, improving
             predictability, release confidence, and cross-team alignment.</li>
-          <li data-editable="true">Migrated deployment infrastructure from manual VM processes to Azure Web Services
+          <li id="job-uguru-bullet-6" data-editable="true" data-reorderable="true">Migrated deployment infrastructure
+            from manual VM processes to Azure Web Services
             with GitHub Actions CI/CD pipelines and Azure Monitor, reducing deployment risk and increasing release
             frequency across QA and production environments.</li>
-          <li data-editable="true">Improved team effectiveness through structured feedback, goal-setting, and coaching,
+          <li id="job-uguru-bullet-7" data-editable="true" data-reorderable="true">Improved team effectiveness through
+            structured feedback, goal-setting, and coaching,
             resulting in stronger ownership and higher delivery consistency across engineers.</li>
         </ul>
       </article>
@@ -104,19 +119,26 @@
         <h3 id="job-talkoot-company" class="job-company" data-editable="false">Talkoot</h3>
         <p id="job-talkoot-role" class="job-role" data-editable="false">Engineering Manager</p>
         <p id="job-talkoot-dates" class="job-dates" data-editable="false">May 2019 - Sept 2021</p>
-        <ul id="job-talkoot-bullets" class="job-bullets" data-reorderable="true">
-          <li data-editable="true">Identified critical limitations in a legacy system, built the case for a full
+        <ul id="job-talkoot-bullets" class="job-bullets" data-has-reorderable="true"
+          data-context="Talkoot | Engineering Manager">
+          <li id="job-talkoot-bullet-1" data-editable="true" data-reorderable="true">Identified critical limitations in
+            a legacy system, built the case for a full
             modernization with company leadership, and led end-to-end execution, turning a high-risk technical bet into
             a successful platform transition.</li>
-          <li data-editable="true">Hired and led a distributed engineering team of 3 through a high-risk platform
+          <li id="job-talkoot-bullet-2" data-editable="true" data-reorderable="true">Hired and led a distributed
+            engineering team of 3 through a high-risk platform
             modernization, aligning leadership, product, and engineering around a shared technical vision.</li>
-          <li data-editable="true">Reduced time-to-interactive by 67% following the modernization, enabling real-time
+          <li id="job-talkoot-bullet-3" data-editable="true" data-reorderable="true">Reduced time-to-interactive by 67%
+            following the modernization, enabling real-time
             performance on workflows that previously struggled under large data loads.</li>
-          <li data-editable="true">Spun up a greenfield SaaS product from zero to MVP alongside a single backend
+          <li id="job-talkoot-bullet-4" data-editable="true" data-reorderable="true">Spun up a greenfield SaaS product
+            from zero to MVP alongside a single backend
             engineer, owning all product and engineering decisions and delivering within 6 months.</li>
-          <li data-editable="true">Built a custom atomic-design component system that standardized UI across the
+          <li id="job-talkoot-bullet-5" data-editable="true" data-reorderable="true">Built a custom atomic-design
+            component system that standardized UI across the
             platform and increased delivery speed by 50%.</li>
-          <li data-editable="true">Set up CI/CD pipelines from scratch, cutting deployment times by 30% and enabling
+          <li id="job-talkoot-bullet-6" data-editable="true" data-reorderable="true">Set up CI/CD pipelines from
+            scratch, cutting deployment times by 30% and enabling
             safer, more frequent releases.</li>
         </ul>
       </article>
@@ -126,13 +148,17 @@
         <p id="job-minnesota-state-role" class="job-role" data-editable="false">Adjunct, Software Engineering Program
           (Part-Time)</p>
         <p id="job-minnesota-state-dates" class="job-dates" data-editable="false">Oct 2025 - Present</p>
-        <ul id="job-minnesota-state-bullets" class="job-bullets" data-reorderable="true">
-          <li data-editable="true">Led a 5-person engineering team in a semester-long project modeled on real-world
+        <ul id="job-minnesota-state-bullets" class="job-bullets" data-has-reorderable="true"
+          data-context="Minnesota State University | Adjunct, Software Engineering Program (Part-Time)">
+          <li id="job-minnesota-state-bullet-1" data-editable="true" data-reorderable="true">Led a 5-person engineering
+            team in a semester-long project modeled on real-world
             product development, driving Scrum execution, backlog management, and accountability to professional
             delivery standards.</li>
-          <li data-editable="true">Established and facilitated structured 1:1s and team feedback loops, improving
+          <li id="job-minnesota-state-bullet-2" data-editable="true" data-reorderable="true">Established and facilitated
+            structured 1:1s and team feedback loops, improving
             ownership, communication, and alignment with high-performing engineering team norms.</li>
-          <li data-editable="true">Delivered hands-on technical coaching in coding, testing, database querying,
+          <li id="job-minnesota-state-bullet-3" data-editable="true" data-reorderable="true">Delivered hands-on
+            technical coaching in coding, testing, database querying,
             architecture, and more, enabling students to apply foundational concepts with real-world engineering rigor.
           </li>
         </ul>
@@ -142,15 +168,20 @@
         <h3 id="job-ph27-company" class="job-company" data-editable="false">ph27</h3>
         <p id="job-ph27-role" class="job-role" data-editable="false">Founder and Engineering Lead</p>
         <p id="job-ph27-dates" class="job-dates" data-editable="false">July 2024 - Present</p>
-        <ul id="job-ph27-bullets" class="job-bullets" data-reorderable="true">
-          <li data-editable="true">Owned end-to-end product and engineering execution for LoveLingo, making product,
+        <ul id="job-ph27-bullets" class="job-bullets" data-has-reorderable="true"
+          data-context="ph27 | Founder and Engineering Lead">
+          <li id="job-ph27-bullet-1" data-editable="true" data-reorderable="true">Owned end-to-end product and
+            engineering execution for LoveLingo, making product,
             architecture, and prioritization decisions as both engineering lead and product owner.</li>
-          <li data-editable="true">Applied accessibility standards (WCAG) and performance best practices across both
+          <li id="job-ph27-bullet-2" data-editable="true" data-reorderable="true">Applied accessibility standards (WCAG)
+            and performance best practices across both
             products, holding the same bar expected of a professional engineering team, resulting in accessibility
             scores of 95+.</li>
-          <li data-editable="true">Operated a lean, AI-augmented workflow using Claude, GitHub Actions, and agent-based
+          <li id="job-ph27-bullet-3" data-editable="true" data-reorderable="true">Operated a lean, AI-augmented workflow
+            using Claude, GitHub Actions, and agent-based
             tooling to handle cross-functional work across product, engineering, and operations.</li>
-          <li data-editable="true">Architected and maintained cloud infrastructure across Vercel and Render, including
+          <li id="job-ph27-bullet-4" data-editable="true" data-reorderable="true">Architected and maintained cloud
+            infrastructure across Vercel and Render, including
             Docker containers, CI/CD pipelines, cron jobs, and server push notifications.</li>
         </ul>
       </article>
@@ -159,11 +190,14 @@
         <h3 id="job-talentful-company" class="job-company" data-editable="false">Talentful</h3>
         <p id="job-talentful-role" class="job-role" data-editable="false">Senior Software Engineer (Contract)</p>
         <p id="job-talentful-dates" class="job-dates" data-editable="false">Jan 2025 - Mar 2025</p>
-        <ul id="job-talentful-bullets" class="job-bullets" data-reorderable="true">
-          <li data-editable="true">Partnered directly with the CTO to deliver high-impact React features and expand
+        <ul id="job-talentful-bullets" class="job-bullets" data-has-reorderable="true"
+          data-context="Talentful | Senior Software Engineer (Contract)">
+          <li id="job-talentful-bullet-1" data-editable="true" data-reorderable="true">Partnered directly with the CTO
+            to deliver high-impact React features and expand
             automated test coverage by 25% in support of a critical platform launch, improving release confidence under
             tight timelines.</li>
-          <li data-editable="true">Improved CI/CD pipelines to enable per-feature deployments, reducing merge friction
+          <li id="job-talentful-bullet-2" data-editable="true" data-reorderable="true">Improved CI/CD pipelines to
+            enable per-feature deployments, reducing merge friction
             and unblocking engineers by ensuring passing changes were reliably deployed.</li>
         </ul>
       </article>
@@ -176,7 +210,8 @@
         <h3 id="job-fiserv-company" class="job-company" data-editable="false">Fiserv</h3>
         <p id="job-fiserv-role" class="job-role" data-editable="false">Lead Software Engineer</p>
         <p id="job-fiserv-dates" class="job-dates" data-editable="false">2018 - 2019</p>
-        <p id="job-fiserv-desc" class="job-desc" data-editable="true">Consulted on accessibility (WCAG) for the
+        <p id="job-fiserv-desc" class="job-desc" data-editable="true" data-context="Fiserv | Lead Software Engineer">
+          Consulted on accessibility (WCAG) for the
           on-premise teller and guest banking app, improving accessibility scores by 20%. Improved app performance using
           modern optimization techniques. Refactored legacy code for scalability and built internal documentation to
           reduce onboarding friction.</p>
@@ -186,7 +221,8 @@
         <h3 id="job-rockwell-company" class="job-company" data-editable="false">Rockwell Automation</h3>
         <p id="job-rockwell-role" class="job-role" data-editable="false">Senior Software Engineer</p>
         <p id="job-rockwell-dates" class="job-dates" data-editable="false">2018</p>
-        <p id="job-rockwell-desc" class="job-desc" data-editable="true">Key contributor to Rockwell Automation's new
+        <p id="job-rockwell-desc" class="job-desc" data-editable="true"
+          data-context="Rockwell Automation | Senior Software Engineer">Key contributor to Rockwell Automation's new
           factory automation IDE and monitoring system, streamlining programming and real-time monitoring of factory
           automation systems within a unified platform.</p>
       </article>
@@ -195,8 +231,9 @@
         <h3 id="job-hulu-company" class="job-company" data-editable="false">Hulu</h3>
         <p id="job-hulu-role" class="job-role" data-editable="false">Team Lead</p>
         <p id="job-hulu-dates" class="job-dates" data-editable="false">2017 - 2018</p>
-        <p id="job-hulu-desc" class="job-desc" data-editable="true">Led a team of 6 Globant engineers on Hulu's
-          &ldquo;Living Room&rdquo; platform, coaching and coordinating delivery of performant, cross-device UI
+        <p id="job-hulu-desc" class="job-desc" data-editable="true" data-context="Hulu | Team Lead">Led a team of 6
+          Globant engineers on Hulu's
+          Living Room Platform, coaching and coordinating delivery of performant, cross-device UI
           components for OTT streaming experiences. Drove implementation of TypeScript across the platform.</p>
       </article>
     </section>

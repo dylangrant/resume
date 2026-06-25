@@ -113,6 +113,7 @@
         "children": [
           {
             "type": "heading-three",
+            "id": "skills-leadership-label",
             "className": "skills-label",
             "editable": false,
             "children": [
@@ -123,6 +124,7 @@
           },
           {
             "type": "paragraph",
+            "id": "skills-leadership-body",
             "className": "body-text",
             "editable": true,
             "children": [
@@ -140,6 +142,7 @@
         "children": [
           {
             "type": "heading-three",
+            "id": "skills-product-label",
             "className": "skills-label",
             "editable": false,
             "children": [
@@ -150,6 +153,7 @@
           },
           {
             "type": "paragraph",
+            "id": "skills-product-body",
             "className": "body-text",
             "editable": true,
             "children": [
@@ -167,6 +171,7 @@
         "children": [
           {
             "type": "heading-three",
+            "id": "skills-technical-label",
             "className": "skills-label",
             "editable": false,
             "children": [
@@ -177,6 +182,7 @@
           },
           {
             "type": "paragraph",
+            "id": "skills-technical-body",
             "className": "body-text",
             "editable": true,
             "children": [
@@ -194,6 +200,7 @@
         "children": [
           {
             "type": "heading-three",
+            "id": "skills-stack-label",
             "className": "skills-label",
             "editable": false,
             "children": [
@@ -204,6 +211,7 @@
           },
           {
             "type": "paragraph",
+            "id": "skills-stack-body",
             "className": "body-text",
             "editable": true,
             "children": [
@@ -221,6 +229,7 @@
         "children": [
           {
             "type": "heading-three",
+            "id": "skills-infra-label",
             "className": "skills-label",
             "editable": false,
             "children": [
@@ -231,6 +240,7 @@
           },
           {
             "type": "paragraph",
+            "id": "skills-infra-body",
             "className": "body-text",
             "editable": true,
             "children": [
@@ -300,11 +310,12 @@
             "type": "bulleted-list",
             "id": "job-uguru-bullets",
             "className": "job-bullets",
-            "reorderable": true,
             "children": [
               {
                 "type": "list-item",
+                "id": "job-uguru-bullet-1",
                 "editable": true,
+                "reorderable": true,
                 "children": [
                   {
                     "text": "Inherited a single undifferentiated engineering team and transformed it into a structured, high-performing organization with dedicated frontend and backend teams, hiring and onboarding 6 engineers while maintaining delivery momentum on an active B2B SaaS platform."
@@ -313,7 +324,9 @@
               },
               {
                 "type": "list-item",
+                "id": "job-uguru-bullet-2",
                 "editable": true,
+                "reorderable": true,
                 "children": [
                   {
                     "text": "Led a full architectural modernization of a legacy platform, identifying the technical debt ceiling, making the case to leadership, and driving execution across the team from monolith to modern stack."
@@ -322,7 +335,9 @@
               },
               {
                 "type": "list-item",
+                "id": "job-uguru-bullet-3",
                 "editable": true,
+                "reorderable": true,
                 "children": [
                   {
                     "text": "Reduced time-to-interactive on a critical platform page from 20 minutes to 2 minutes following the architecture modernization, measured via Chrome DevTools performance profiling."
@@ -331,7 +346,9 @@
               },
               {
                 "type": "list-item",
+                "id": "job-uguru-bullet-4",
                 "editable": true,
+                "reorderable": true,
                 "children": [
                   {
                     "text": "Bridged engineering, product, and customer stakeholders, converting ambiguous business objectives into clear technical roadmaps and shipped outcomes by establishing consistent communication and shared accountability across teams."
@@ -340,7 +357,9 @@
               },
               {
                 "type": "list-item",
+                "id": "job-uguru-bullet-5",
                 "editable": true,
+                "reorderable": true,
                 "children": [
                   {
                     "text": "Owned delivery outcomes across the engineering organization, improving predictability, release confidence, and cross-team alignment."
@@ -349,7 +368,9 @@
               },
               {
                 "type": "list-item",
+                "id": "job-uguru-bullet-6",
                 "editable": true,
+                "reorderable": true,
                 "children": [
                   {
                     "text": "Migrated deployment infrastructure from manual VM processes to Azure Web Services with GitHub Actions CI/CD pipelines and Azure Monitor, reducing deployment risk and increasing release frequency across QA and production environments."
@@ -358,7 +379,9 @@
               },
               {
                 "type": "list-item",
+                "id": "job-uguru-bullet-7",
                 "editable": true,
+                "reorderable": true,
                 "children": [
                   {
                     "text": "Improved team effectiveness through structured feedback, goal-setting, and coaching, resulting in stronger ownership and higher delivery consistency across engineers."
@@ -410,11 +433,12 @@
             "type": "bulleted-list",
             "id": "job-talkoot-bullets",
             "className": "job-bullets",
-            "reorderable": true,
             "children": [
               {
                 "type": "list-item",
+                "id": "job-talkoot-bullet-1",
                 "editable": true,
+                "reorderable": true,
                 "children": [
                   {
                     "text": "Identified critical limitations in a legacy system, built the case for a full modernization with company leadership, and led end-to-end execution, turning a high-risk technical bet into a successful platform transition."
@@ -423,7 +447,9 @@
               },
               {
                 "type": "list-item",
+                "id": "job-talkoot-bullet-2",
                 "editable": true,
+                "reorderable": true,
                 "children": [
                   {
                     "text": "Hired and led a distributed engineering team of 3 through a high-risk platform modernization, aligning leadership, product, and engineering around a shared technical vision."
@@ -432,7 +458,9 @@
               },
               {
                 "type": "list-item",
+                "id": "job-talkoot-bullet-3",
                 "editable": true,
+                "reorderable": true,
                 "children": [
                   {
                     "text": "Reduced time-to-interactive by 67% following the modernization, enabling real-time performance on workflows that previously struggled under large data loads."
@@ -441,7 +469,9 @@
               },
               {
                 "type": "list-item",
+                "id": "job-talkoot-bullet-4",
                 "editable": true,
+                "reorderable": true,
                 "children": [
                   {
                     "text": "Spun up a greenfield SaaS product from zero to MVP alongside a single backend engineer, owning all product and engineering decisions and delivering within 6 months."
@@ -450,7 +480,9 @@
               },
               {
                 "type": "list-item",
+                "id": "job-talkoot-bullet-5",
                 "editable": true,
+                "reorderable": true,
                 "children": [
                   {
                     "text": "Built a custom atomic-design component system that standardized UI across the platform and increased delivery speed by 50%."
@@ -459,7 +491,9 @@
               },
               {
                 "type": "list-item",
+                "id": "job-talkoot-bullet-6",
                 "editable": true,
+                "reorderable": true,
                 "children": [
                   {
                     "text": "Set up CI/CD pipelines from scratch, cutting deployment times by 30% and enabling safer, more frequent releases."
@@ -511,11 +545,12 @@
             "type": "bulleted-list",
             "id": "job-minnesota-state-bullets",
             "className": "job-bullets",
-            "reorderable": true,
             "children": [
               {
                 "type": "list-item",
+                "id": "job-minnesota-state-bullet-1",
                 "editable": true,
+                "reorderable": true,
                 "children": [
                   {
                     "text": "Led a 5-person engineering team in a semester-long project modeled on real-world product development, driving Scrum execution, backlog management, and accountability to professional delivery standards."
@@ -524,7 +559,9 @@
               },
               {
                 "type": "list-item",
+                "id": "job-minnesota-state-bullet-2",
                 "editable": true,
+                "reorderable": true,
                 "children": [
                   {
                     "text": "Established and facilitated structured 1:1s and team feedback loops, improving ownership, communication, and alignment with high-performing engineering team norms."
@@ -533,7 +570,9 @@
               },
               {
                 "type": "list-item",
+                "id": "job-minnesota-state-bullet-3",
                 "editable": true,
+                "reorderable": true,
                 "children": [
                   {
                     "text": "Delivered hands-on technical coaching in coding, testing, database querying, architecture, and more, enabling students to apply foundational concepts with real-world engineering rigor."
@@ -585,11 +624,12 @@
             "type": "bulleted-list",
             "id": "job-ph27-bullets",
             "className": "job-bullets",
-            "reorderable": true,
             "children": [
               {
                 "type": "list-item",
+                "id": "job-ph27-bullet-1",
                 "editable": true,
+                "reorderable": true,
                 "children": [
                   {
                     "text": "Owned end-to-end product and engineering execution for LoveLingo, making product, architecture, and prioritization decisions as both engineering lead and product owner."
@@ -598,7 +638,9 @@
               },
               {
                 "type": "list-item",
+                "id": "job-ph27-bullet-2",
                 "editable": true,
+                "reorderable": true,
                 "children": [
                   {
                     "text": "Applied accessibility standards (WCAG) and performance best practices across both products, holding the same bar expected of a professional engineering team, resulting in accessibility scores of 95+."
@@ -607,7 +649,9 @@
               },
               {
                 "type": "list-item",
+                "id": "job-ph27-bullet-3",
                 "editable": true,
+                "reorderable": true,
                 "children": [
                   {
                     "text": "Operated a lean, AI-augmented workflow using Claude, GitHub Actions, and agent-based tooling to handle cross-functional work across product, engineering, and operations."
@@ -616,7 +660,9 @@
               },
               {
                 "type": "list-item",
+                "id": "job-ph27-bullet-4",
                 "editable": true,
+                "reorderable": true,
                 "children": [
                   {
                     "text": "Architected and maintained cloud infrastructure across Vercel and Render, including Docker containers, CI/CD pipelines, cron jobs, and server push notifications."
@@ -668,11 +714,12 @@
             "type": "bulleted-list",
             "id": "job-talentful-bullets",
             "className": "job-bullets",
-            "reorderable": true,
             "children": [
               {
                 "type": "list-item",
+                "id": "job-talentful-bullet-1",
                 "editable": true,
+                "reorderable": true,
                 "children": [
                   {
                     "text": "Partnered directly with the CTO to deliver high-impact React features and expand automated test coverage by 25% in support of a critical platform launch, improving release confidence under tight timelines."
@@ -681,7 +728,9 @@
               },
               {
                 "type": "list-item",
+                "id": "job-talentful-bullet-2",
                 "editable": true,
+                "reorderable": true,
                 "children": [
                   {
                     "text": "Improved CI/CD pipelines to enable per-feature deployments, reducing merge friction and unblocking engineers by ensuring passing changes were reliably deployed."
@@ -857,7 +906,7 @@
             "editable": true,
             "children": [
               {
-                "text": "Led a team of 6 Globant engineers on Hulu's “Living Room” platform, coaching and coordinating delivery of performant, cross-device UI components for OTT streaming experiences. Drove implementation of TypeScript across the platform."
+                "text": "Led a team of 6 Globant engineers on Hulu's Living Room Platform, coaching and coordinating delivery of performant, cross-device UI components for OTT streaming experiences. Drove implementation of TypeScript across the platform."
               }
             ]
           }
