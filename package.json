@@ -15,9 +15,8 @@
   "type": "module",
   "main": "resume.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "to-json": "node index.js to-json",
-    "to-html": "node index.js to-html"
+    "test": "node scripts/verify-roundtrip.mjs && node test/write-test-output.mjs",
+    "to-json": "node index.js to-json"
   },
   "dependencies": {
     "htmlparser2": "^12.0.0"

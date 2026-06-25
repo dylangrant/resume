@@ -1,0 +1,68 @@
+[
+  {
+    "type": "header",
+    "id": "header",
+    "children": [
+      {
+        "type": "heading-one",
+        "id": "name",
+        "editable": true,
+        "children": [
+          {
+            "text": "Dylan Grant"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "section",
+    "id": "skills",
+    "hasReorderable": true,
+    "children": [
+      {
+        "type": "skills-group",
+        "id": "skills-leadership",
+        "reorderable": true,
+        "context": "Leadership skills",
+        "children": [
+          {
+            "type": "paragraph",
+            "id": "skills-leadership-body",
+            "editable": true,
+            "children": [
+              {
+                "text": "Team Building"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "section",
+    "id": "experience",
+    "children": [
+      {
+        "type": "job",
+        "id": "job-uguru",
+        "hasReorderable": true,
+        "context": "uGuru Data Sciences | Engineering Manager",
+        "children": [
+          {
+            "type": "list-item",
+            "id": "job-uguru-bullet-1",
+            "editable": true,
+            "reorderable": true,
+            "children": [
+              {
+                "text": "Led a team"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
