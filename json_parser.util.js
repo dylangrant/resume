@@ -16,14 +16,21 @@ const buildClassList = node => CLASS_TYPE_TAG_MAP[node.type]
   ? [node.type, ...(node.className ? node.className.split(' ') : [])]
   : (node.className ? node.className.split(' ') : [])
 
+const toKebabCase = value => value.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()
+
 const buildAttrs = node => {
   const classList = buildClassList(node)
+  const dataAttrs = Object.entries(node)
+    .filter(([key]) => !['type', 'id', 'className', 'children', 'editable', 'reorderable'].includes(key))
+    .map(([key, value]) => value !== undefined && `data-${toKebabCase(key)}="${value}"`)
+    .filter(Boolean)
 
   const attrs = [
     node.id && `id="${node.id}"`,
     classList.length > 0 && `class="${classList.join(' ')}"`,
     node.editable !== undefined && `data-editable="${node.editable}"`,
     node.reorderable !== undefined && `data-reorderable="${node.reorderable}"`,
+    ...dataAttrs,
   ].filter(Boolean)
 
   return attrs.length > 0 ? ` ${attrs.join(' ')}` : ''

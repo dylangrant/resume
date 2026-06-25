@@ -94,6 +94,7 @@
     "type": "section",
     "id": "skills",
     "className": "section",
+    "hasReorderable": true,
     "children": [
       {
         "type": "heading-two",
@@ -310,6 +311,8 @@
             "type": "bulleted-list",
             "id": "job-uguru-bullets",
             "className": "job-bullets",
+            "hasReorderable": true,
+            "context": "uGuru Data Sciences | Engineering Manager",
             "children": [
               {
                 "type": "list-item",
@@ -433,6 +436,8 @@
             "type": "bulleted-list",
             "id": "job-talkoot-bullets",
             "className": "job-bullets",
+            "hasReorderable": true,
+            "context": "Talkoot | Engineering Manager",
             "children": [
               {
                 "type": "list-item",
@@ -545,6 +550,8 @@
             "type": "bulleted-list",
             "id": "job-minnesota-state-bullets",
             "className": "job-bullets",
+            "hasReorderable": true,
+            "context": "Minnesota State University | Adjunct, Software Engineering Program (Part-Time)",
             "children": [
               {
                 "type": "list-item",
@@ -624,6 +631,8 @@
             "type": "bulleted-list",
             "id": "job-ph27-bullets",
             "className": "job-bullets",
+            "hasReorderable": true,
+            "context": "ph27 | Founder and Engineering Lead",
             "children": [
               {
                 "type": "list-item",
@@ -714,6 +723,8 @@
             "type": "bulleted-list",
             "id": "job-talentful-bullets",
             "className": "job-bullets",
+            "hasReorderable": true,
+            "context": "Talentful | Senior Software Engineer (Contract)",
             "children": [
               {
                 "type": "list-item",
@@ -802,6 +813,7 @@
             "id": "job-fiserv-desc",
             "className": "job-desc",
             "editable": true,
+            "context": "Fiserv | Lead Software Engineer",
             "children": [
               {
                 "text": "Consulted on accessibility (WCAG) for the on-premise teller and guest banking app, improving accessibility scores by 20%. Improved app performance using modern optimization techniques. Refactored legacy code for scalability and built internal documentation to reduce onboarding friction."
@@ -853,6 +865,7 @@
             "id": "job-rockwell-desc",
             "className": "job-desc",
             "editable": true,
+            "context": "Rockwell Automation | Senior Software Engineer",
             "children": [
               {
                 "text": "Key contributor to Rockwell Automation's new factory automation IDE and monitoring system, streamlining programming and real-time monitoring of factory automation systems within a unified platform."
@@ -904,6 +917,7 @@
             "id": "job-hulu-desc",
             "className": "job-desc",
             "editable": true,
+            "context": "Hulu | Team Lead",
             "children": [
               {
                 "text": "Led a team of 6 Globant engineers on Hulu's Living Room Platform, coaching and coordinating delivery of performant, cross-device UI components for OTT streaming experiences. Drove implementation of TypeScript across the platform."

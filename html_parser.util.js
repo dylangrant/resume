@@ -14,6 +14,21 @@ const findElementById = (nodes, id) => {
 
 const getClassList = el => (el.attribs?.class || '').split(/\s+/).filter(Boolean)
 
+const toCamelCase = value => value.replace(/-([a-z])/g, (_, char) => char.toUpperCase())
+
+const parseAttributeValue = value => {
+  if (value === 'true') return true
+  if (value === 'false') return false
+  return value
+}
+
+const getDataAttributes = attribs => Object.entries(attribs || {}).reduce((acc, [name, value]) => {
+  if (!name.startsWith('data-')) return acc
+
+  acc[toCamelCase(name.slice(5))] = parseAttributeValue(value)
+  return acc
+}, {})
+
 const getTextContent = el => {
   const collectText = node => {
     if (node.type === 'text') return node.data
@@ -30,7 +45,13 @@ const elementToNode = el => {
   const type = usesClassAsType ? classList[0] : (TAG_TYPE_MAP[el.name] || el.name)
   const remainingClasses = usesClassAsType ? classList.slice(1) : classList
 
-  const { id, 'data-editable': dataEditable, 'data-reorderable': dataReorderable } = el.attribs || {}
+  const {
+    id,
+    'data-editable': dataEditable,
+    'data-reorderable': dataReorderable,
+    ...restAttribs
+  } = el.attribs || {}
+  const dataAttributes = getDataAttributes(restAttribs)
 
   const childElements = (el.children || []).filter(child => child.type === 'tag')
   const children = childElements.length > 0
@@ -43,6 +64,7 @@ const elementToNode = el => {
     ...(remainingClasses.length > 0 && { className: remainingClasses.join(' ') }),
     ...(dataEditable !== undefined && { editable: dataEditable === 'true' }),
     ...(dataReorderable !== undefined && { reorderable: dataReorderable === 'true' }),
+    ...dataAttributes,
     children,
   }
 }
