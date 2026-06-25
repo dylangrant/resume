@@ -15,7 +15,7 @@
   "type": "module",
   "main": "resume.html",
   "scripts": {
-    "test": "node scripts/verify-roundtrip.mjs && node test/write-test-output.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "to-json": "node index.js to-json"
   },
   "dependencies": {

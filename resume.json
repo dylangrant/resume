@@ -311,6 +311,8 @@
             "type": "bulleted-list",
             "id": "job-uguru-bullets",
             "className": "job-bullets",
+            "hasReorderable": true,
+            "context": "uGuru Data Sciences | Engineering Manager",
             "children": [
               {
                 "type": "list-item",
@@ -434,6 +436,8 @@
             "type": "bulleted-list",
             "id": "job-talkoot-bullets",
             "className": "job-bullets",
+            "hasReorderable": true,
+            "context": "Talkoot | Engineering Manager",
             "children": [
               {
                 "type": "list-item",
@@ -546,6 +550,8 @@
             "type": "bulleted-list",
             "id": "job-minnesota-state-bullets",
             "className": "job-bullets",
+            "hasReorderable": true,
+            "context": "Minnesota State University | Adjunct, Software Engineering Program (Part-Time)",
             "children": [
               {
                 "type": "list-item",
@@ -625,6 +631,8 @@
             "type": "bulleted-list",
             "id": "job-ph27-bullets",
             "className": "job-bullets",
+            "hasReorderable": true,
+            "context": "ph27 | Founder and Engineering Lead",
             "children": [
               {
                 "type": "list-item",
@@ -715,6 +723,8 @@
             "type": "bulleted-list",
             "id": "job-talentful-bullets",
             "className": "job-bullets",
+            "hasReorderable": true,
+            "context": "Talentful | Senior Software Engineer (Contract)",
             "children": [
               {
                 "type": "list-item",
