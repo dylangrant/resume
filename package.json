@@ -15,7 +15,7 @@
   "type": "module",
   "main": "resume.html",
   "scripts": {
-    "test": "node scripts/verify-roundtrip.mjs",
+    "test": "node scripts/verify-roundtrip.mjs && node test/write-test-output.mjs",
     "to-json": "node index.js to-json"
   },
   "dependencies": {
