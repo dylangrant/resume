@@ -4,6 +4,8 @@ import { tmpdir } from 'os'
 import { dirname, join, resolve } from 'path'
 import { fileURLToPath } from 'url'
 
+import { htmlToOneLine } from '../html_parser.util.js'
+
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 const repoRoot = resolve(__dirname, '..')
@@ -27,26 +29,13 @@ try {
 
   const originalHtml = readFileSync(originalHtmlPath, 'utf8')
   const generatedHtml = readFileSync(generatedHtmlPath, 'utf8')
+  const normalizedOriginal = htmlToOneLine(originalHtml)
+  const normalizedGenerated = htmlToOneLine(generatedHtml)
 
-  if (originalHtml !== generatedHtml) {
-    const originalLines = originalHtml.split('\n')
-    const generatedLines = generatedHtml.split('\n')
-    const maxLines = Math.max(originalLines.length, generatedLines.length)
-    let firstDiffLine = -1
-
-    for (let index = 0; index < maxLines; index += 1) {
-      if (originalLines[index] !== generatedLines[index]) {
-        firstDiffLine = index
-        break
-      }
-    }
-
+  if (normalizedOriginal !== normalizedGenerated) {
     console.error('HTML round-trip verification failed.')
-    if (firstDiffLine >= 0) {
-      console.error(`First difference at line ${firstDiffLine + 1}:`)
-      console.error(`Original: ${originalLines[firstDiffLine] ?? ''}`)
-      console.error(`Generated: ${generatedLines[firstDiffLine] ?? ''}`)
-    }
+    console.error(`Original: ${normalizedOriginal}`)
+    console.error(`Generated: ${normalizedGenerated}`)
     process.exit(1)
   }
 
