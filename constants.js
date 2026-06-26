@@ -22,7 +22,7 @@ export const TYPE_TAG_MAP = Object.fromEntries(
 // each child, matching how the base resume separates repeated blocks
 // (skill groups, job entries) but not consecutive headings/paragraphs.
 export const BLOCK_TYPES = new Set(['skills-group', 'job'])
-export const VOID_ELEMENTS = new Set(['meta', 'link', 'img', 'input', 'br', 'hr', 'area', 'base', 'col', 'embed', 'param', 'source', 'track', 'wbr'])
+export const VOID_ELEMENTS = new Set(['meta', 'link', 'img', 'input', 'br', 'hr', 'area', 'base', 'col', 'embed', 'param', 'source', 'track', 'wbr', 'script', 'style'])
 
 
 // Tags whose semantic type comes from their first CSS class instead of the

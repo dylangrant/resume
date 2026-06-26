@@ -21,20 +21,23 @@
       "type": "title",
       "children": [
         {
-          "text": "Dylan Grant - Resume"
-        }
-      ]
-    },
-    {
-      "type": "style",
-      "children": [
-        {
-          "text": ":root { --color-text: #1a1a1a; --color-muted: #444444; --color-rule: #1a1a1a; --color-rule-light: #cccccc; --font-body: Georgia, \"Times New Roman\", serif; --max-width: 7.5in; } * { box-sizing: border-box; } body { margin: 0; padding: 2.25rem 1rem; background: #ffffff; color: var(--color-text); font-family: var(--font-body); font-size: 11pt; line-height: 1.45; } .resume { max-width: var(--max-width); margin: 0 auto; } /* Header */ .header { text-align: center; margin-bottom: 1.6rem; } .name { margin: 0 0 0.15rem 0; font-size: 24pt; font-weight: bold; letter-spacing: 0.02em; } .title { margin: 0 0 0.3rem 0; font-size: 12pt; font-style: italic; color: var(--color-muted); } .contact { margin: 0; font-size: 10pt; color: var(--color-muted); } /* Sections */ .section { margin-bottom: 1.6rem; } .section-heading { font-size: 14pt; font-weight: bold; text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 0.5rem 0; padding-bottom: 0.15rem; border-bottom: 1.5px solid var(--color-rule); } .body-text { margin: 0 0 0.4rem 0; } .body-text:last-child { margin-bottom: 0; } /* Skills */ .skills-group { margin-bottom: 0.45rem; } .skills-group:last-child { margin-bottom: 0; } .skills-label { display: inline; font-size: 11pt; font-weight: bold; margin: 0; } .skills-group .body-text { display: inline; margin: 0; } /* Jobs */ .job { margin-bottom: 0.85rem; page-break-inside: avoid; } .job:last-child { margin-bottom: 0; } .job-company { font-size: 11.5pt; font-weight: bold; margin: 0; } .job-role { margin: 0.05rem 0 0 0; font-style: italic; color: var(--color-muted); } .job-dates { margin: 0.05rem 0 0.35rem 0; font-size: 10pt; color: var(--color-muted); } .job-bullets { margin: 0; padding-left: 1.1rem; } .job-bullets li { margin-bottom: 0.3rem; } .job-bullets li:last-child { margin-bottom: 0; } .job-desc { margin: 0; } .job-compact { margin-bottom: 0.7rem; } /* Print */ @media print { body { padding: 0; font-size: 10.5pt; } .resume { max-width: 100%; } .section { break-inside: avoid; } }"
+          "text": "Dylan Grant Resume"
         }
       ]
     }
   ],
   "body": [
+    {
+      "type": "style",
+      "id": "resume-styling",
+      "children": [
+        {
+          "text": ":root { --color-text: #1a1a1a; --color-muted: #444444; --color-rule: #1a1a1a; --color-rule-light: #cccccc; --font-body: Georgia, \"Times New Roman\", serif; --max-width: 7.5in; } * { box-sizing: border-box; } body { margin: 0; padding: 2.25rem 1rem; background: #ffffff; color: var(--color-text); font-family: var(--font-body); font-size: 11pt; line-height: 1.45; } .resume { max-width: var(--max-width); margin: 0 auto; } /* Header */ .header { text-align: center; margin-bottom: 1.6rem; } .name { margin: 0 0 0.15rem 0; font-size: 24pt; font-weight: bold; letter-spacing: 0.02em; } .title { margin: 0 0 0.3rem 0; font-size: 12pt; font-style: italic; color: var(--color-muted); } .contact { margin: 0; font-size: 10pt; color: var(--color-muted); } /* Sections */ .section { margin-bottom: 1.6rem; } .section-heading { font-size: 14pt; font-weight: bold; text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 0.5rem 0; padding-bottom: 0.15rem; border-bottom: 1.5px solid var(--color-rule); } .body-text { margin: 0 0 0.4rem 0; } .body-text:last-child { margin-bottom: 0; } /* Skills */ .skills-group { margin-bottom: 0.45rem; } .skills-group:last-child { margin-bottom: 0; } .skills-label { display: inline; font-size: 11pt; font-weight: bold; margin: 0; } .skills-group .body-text { display: inline; margin: 0; } /* Jobs */ .job { margin-bottom: 0.85rem; page-break-inside: avoid; } .job:last-child { margin-bottom: 0; } .job-company { font-size: 11.5pt; font-weight: bold; margin: 0; } .job-role { margin: 0.05rem 0 0 0; font-style: italic; color: var(--color-muted); } .job-dates { margin: 0.05rem 0 0.35rem 0; font-size: 10pt; color: var(--color-muted); } .job-bullets { margin: 0; padding-left: 1.1rem; } .job-bullets li { margin-bottom: 0.3rem; } .job-bullets li:last-child { margin-bottom: 0; } .job-desc { margin: 0; } .job-compact { margin-bottom: 0.7rem; } /* Print */ @media print { body { padding: 0; font-size: 10.5pt; } .resume { max-width: 100%; } .section { break-inside: avoid; } }",
+          "type": "style",
+          "data-editable": false
+        }
+      ]
+    },
     {
       "type": "main",
       "id": "resume",

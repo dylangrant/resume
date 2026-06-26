@@ -1,8 +1,6 @@
 import { parseDocument } from 'htmlparser2'
 
-import { CLASS_TYPE_TAGS, TAG_TYPE_MAP } from './constants.js'
-
-const VOID_ELEMENTS = new Set(['meta', 'link', 'img', 'input', 'br', 'hr', 'area', 'base', 'col', 'embed', 'param', 'source', 'track', 'wbr'])
+import { CLASS_TYPE_TAGS, TAG_TYPE_MAP, VOID_ELEMENTS } from './constants.js'
 
 const getClassList = el => (el.attribs?.class || '').split(/\s+/).filter(Boolean)
 
@@ -83,7 +81,11 @@ const elementToNode = el => {
   }
 
   if (el.name === 'style') {
-    node.children = [{ text: getTextContent(el) }]
+    node.children = [{ 
+      text: getTextContent(el),
+      type: 'style',
+      'data-editable': false,
+    }]
   } else if (children.length > 0) {
     node.children = children
   } else if (!VOID_ELEMENTS.has(el.name)) {
