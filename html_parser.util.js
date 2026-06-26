@@ -2,15 +2,7 @@ import { parseDocument } from 'htmlparser2'
 
 import { CLASS_TYPE_TAGS, TAG_TYPE_MAP } from './constants.js'
 
-const findElementById = (nodes, id) => {
-  for (const node of nodes) {
-    if (node.type !== 'tag') continue
-    if (node.attribs?.id === id) return node
-    const found = findElementById(node.children || [], id)
-    if (found) return found
-  }
-  return null
-}
+const VOID_ELEMENTS = new Set(['meta', 'link', 'img', 'input', 'br', 'hr', 'area', 'base', 'col', 'embed', 'param', 'source', 'track', 'wbr'])
 
 const getClassList = el => (el.attribs?.class || '').split(/\s+/).filter(Boolean)
 
@@ -38,6 +30,25 @@ const getTextContent = el => {
   return collectText(el).replace(/\s+/g, ' ').trim()
 }
 
+const buildChildren = el => {
+  const childNodes = []
+
+  for (const child of el.children || []) {
+    if (child.type === 'tag' || child.type === 'style' || child.type === 'script') {
+      childNodes.push(elementToNode(child))
+    } else if (child.type === 'text' && !/^\s*$/.test(child.data)) {
+      childNodes.push({ text: child.data })
+    }
+  }
+
+  if (el.name === 'style' && el.children?.some(child => child.type === 'text')) {
+    const textContent = el.children.map(child => child.data || '').join('')
+    return [{ type: 'style', children: [{ text: textContent }] }]
+  }
+
+  return childNodes
+}
+
 const elementToNode = el => {
   const classList = getClassList(el)
   const usesClassAsType = CLASS_TYPE_TAGS.has(el.name)
@@ -47,39 +58,67 @@ const elementToNode = el => {
 
   const {
     id,
+    class: _class,
     'data-editable': dataEditable,
     'data-reorderable': dataReorderable,
     ...restAttribs
   } = el.attribs || {}
   const dataAttributes = getDataAttributes(restAttribs)
+  const regularAttributes = Object.entries(restAttribs || {}).reduce((acc, [name, value]) => {
+    if (name.startsWith('data-')) return acc
+    acc[name] = parseAttributeValue(value)
+    return acc
+  }, {})
 
-  const childElements = (el.children || []).filter(child => child.type === 'tag')
-  const children = childElements.length > 0
-    ? childElements.map(elementToNode)
-    : [{ text: getTextContent(el) }]
-
-  return {
+  const hasTagChildren = (el.children || []).some(child => child.type === 'tag')
+  const children = el.name === 'style' ? [] : (hasTagChildren ? buildChildren(el) : [])
+  const node = {
     type,
     ...(id && { id }),
     ...(remainingClasses.length > 0 && { className: remainingClasses.join(' ') }),
     ...(dataEditable !== undefined && { editable: dataEditable === 'true' }),
     ...(dataReorderable !== undefined && { reorderable: dataReorderable === 'true' }),
     ...dataAttributes,
-    children,
+    ...(Object.keys(regularAttributes).length > 0 && { attributes: regularAttributes }),
   }
+
+  if (el.name === 'style') {
+    node.children = [{ text: getTextContent(el) }]
+  } else if (children.length > 0) {
+    node.children = children
+  } else if (!VOID_ELEMENTS.has(el.name)) {
+    const textContent = getTextContent(el)
+    if (textContent) {
+      node.children = [{ text: textContent }]
+    } else {
+      node.children = []
+    }
+  } else {
+    node.children = []
+  }
+
+  return node
 }
+
+const findChildTag = (parent, tagName) => (parent.children || []).find(child => child.type === 'tag' && child.name === tagName) || null
 
 export const htmlToOneLine = html => html.replace(/\n/g, '').replace(/\s+/g, ' ').trim()
 
 export const parseHtmlToJson = html => {
   const document = parseDocument(html)
-  const resumeEl = findElementById(document.children, 'resume')
+  const htmlNode = (document.children || []).find(child => child.type === 'tag' && child.name === 'html')
 
-  if (!resumeEl) {
-    throw new Error('Could not find <main id="resume"> in the provided HTML')
+  if (!htmlNode) {
+    throw new Error('Could not find <html> in the provided HTML')
   }
 
-  return resumeEl.children
-    .filter(child => child.type === 'tag')
-    .map(elementToNode)
+  const headNode = findChildTag(htmlNode, 'head')
+  const bodyNode = findChildTag(htmlNode, 'body')
+
+  return {
+    type: 'document',
+    ...(htmlNode.attribs?.lang && { lang: htmlNode.attribs.lang }),
+    head: headNode ? buildChildren(headNode) : [],
+    body: bodyNode ? buildChildren(bodyNode) : [],
+  }
 }

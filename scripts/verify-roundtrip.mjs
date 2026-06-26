@@ -32,6 +32,16 @@ try {
   const normalizedOriginal = htmlToOneLine(originalHtml)
   const normalizedGenerated = htmlToOneLine(generatedHtml)
 
+  const hasDocumentShell = generatedHtml.includes('<!DOCTYPE html>')
+    && generatedHtml.includes('<html lang="en">')
+    && generatedHtml.includes('<head>')
+    && generatedHtml.includes('<body>')
+
+  if (!hasDocumentShell) {
+    console.error('Generated HTML is missing the full document shell.')
+    process.exit(1)
+  }
+
   if (normalizedOriginal !== normalizedGenerated) {
     console.error('HTML round-trip verification failed.')
     console.error(`Original: ${normalizedOriginal}`)
