@@ -14,7 +14,7 @@ const toJson = (htmlPath = 'index.html', jsonPath = 'resume.json') => {
 
 const toHtml = (jsonPath = 'resume.json', htmlPath = 'index.html') => {
   const json = JSON.parse(readFileSync(jsonPath, 'utf-8'))
-  const html = jsonToHtml(json)
+  const html = jsonToHtml(json, 'developmentMode')
   writeFileSync(htmlPath, html)
   console.log(`Wrote ${htmlPath} from ${jsonPath}`)
 }

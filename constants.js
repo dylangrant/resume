@@ -33,3 +33,21 @@ export const CLASS_TYPE_TAG_MAP = {
 }
 
 export const CLASS_TYPE_TAGS = new Set(Object.values(CLASS_TYPE_TAG_MAP))
+
+export const INLINE_STYLES = {
+  name: 'font-family:Georgia,serif;font-size:24pt;font-weight:bold;letter-spacing:0.02em;text-align:center;',
+  title: 'font-family:Georgia,serif;font-size:12pt;font-style:italic;color:#444444;text-align:center;',
+  contact: 'font-family:Georgia,serif;font-size:10pt;color:#444444;text-align:center;',
+  'section-heading': 'font-family:Georgia,serif;font-size:13pt;font-weight:bold;text-transform:uppercase;letter-spacing:0.06em;border-bottom:1.5px solid #1a1a1a;',
+  'body-text': 'font-family:Georgia,serif;font-size:11pt;display:inline;',
+  'skills-label': 'font-family:Georgia,serif;font-size:11pt;font-weight:bold;display:inline;',
+  'job-company': 'font-family:Georgia,serif;font-size:11.5pt;font-weight:bold;',
+  'job-role': 'font-family:Georgia,serif;font-size:11pt;font-style:italic;color:#444444;',
+  'job-dates': 'font-family:Georgia,serif;font-size:10pt;color:#444444;',
+  'job-bullets': 'margin:0;padding-left:1.1rem;',
+  'job-desc': 'font-family:Georgia,serif;font-size:11pt;',
+  'skills-group': 'margin-bottom:0.45rem;',
+  job: 'margin-bottom:0.85rem;',
+  'job-compact': 'margin-bottom:0.7rem;',
+  header: 'text-align:center;margin-bottom:1.6rem;',
+};
