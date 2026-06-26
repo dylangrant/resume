@@ -18,6 +18,13 @@ export const TYPE_TAG_MAP = Object.fromEntries(
   Object.entries(TAG_TYPE_MAP).map(([tag, type]) => [type, tag])
 )
 
+// Sibling groups containing one of these types get a blank line between
+// each child, matching how the base resume separates repeated blocks
+// (skill groups, job entries) but not consecutive headings/paragraphs.
+export const BLOCK_TYPES = new Set(['skills-group', 'job'])
+export const VOID_ELEMENTS = new Set(['meta', 'link', 'img', 'input', 'br', 'hr', 'area', 'base', 'col', 'embed', 'param', 'source', 'track', 'wbr'])
+
+
 // Tags whose semantic type comes from their first CSS class instead of the
 // tag name (e.g. <div class="skills-group"> -> type "skills-group").
 export const CLASS_TYPE_TAG_MAP = {
@@ -26,24 +33,3 @@ export const CLASS_TYPE_TAG_MAP = {
 }
 
 export const CLASS_TYPE_TAGS = new Set(Object.values(CLASS_TYPE_TAG_MAP))
-
-export const HTML_SHELL = {
-  before: `<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dylan Grant - Resume</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-  <main id="resume" class="resume">
-`,
-  after: `
-  </main>
-</body>
-
-</html>`,
-}

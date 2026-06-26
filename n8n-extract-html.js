@@ -1,9 +1,38 @@
-import {
-  BLOCK_TYPES,
-  CLASS_TYPE_TAG_MAP,
-  TYPE_TAG_MAP,
-  VOID_ELEMENTS
-} from './constants.js'
+// Tags whose semantic type is the tag name itself.
+const TAG_TYPE_MAP = {
+  header: 'header',
+  section: 'section',
+  h1: 'heading-one',
+  h2: 'heading-two',
+  h3: 'heading-three',
+  h4: 'heading-four',
+  h5: 'heading-five',
+  h6: 'heading-six',
+  p: 'paragraph',
+  ul: 'bulleted-list',
+  ol: 'numbered-list',
+  li: 'list-item',
+}
+
+const TYPE_TAG_MAP = Object.fromEntries(
+  Object.entries(TAG_TYPE_MAP).map(([tag, type]) => [type, tag])
+)
+
+// Sibling groups containing one of these types get a blank line between
+// each child, matching how the base resume separates repeated blocks
+// (skill groups, job entries) but not consecutive headings/paragraphs.
+const BLOCK_TYPES = new Set(['skills-group', 'job'])
+const VOID_ELEMENTS = new Set(['meta', 'link', 'img', 'input', 'br', 'hr', 'area', 'base', 'col', 'embed', 'param', 'source', 'track', 'wbr'])
+
+
+// Tags whose semantic type comes from their first CSS class instead of the
+// tag name (e.g. <div class="skills-group"> -> type "skills-group").
+const CLASS_TYPE_TAG_MAP = {
+  'skills-group': 'div',
+  job: 'article',
+}
+
+const CLASS_TYPE_TAGS = new Set(Object.values(CLASS_TYPE_TAG_MAP))
 
 const escapeHtml = text => text
   .replace(/&/g, '&amp;')
@@ -78,7 +107,7 @@ const renderDocument = documentNode => {
   return `<!DOCTYPE html>\n<html${langAttr}>\n\n<head>\n${headContent}\n</head>\n\n<body>\n${bodyContent}\n</body>\n\n</html>\n`
 }
 
-export const jsonToHtml = input => {
+const jsonToHtml = input => {
   if (input && typeof input === 'object' && Array.isArray(input.body)) {
     return renderDocument(input)
   }
@@ -89,3 +118,52 @@ export const jsonToHtml = input => {
     body: [],
   })
 }
+
+// ---- Merge Claude's tailored edits back into the full resume tree ----
+//
+// Expects this item's json to contain:
+//   - resumeTree: the full { type, lang, head, body } document, passed
+//     through from the extract-editable-nodes step
+//   - the tailored edits, either already parsed (editedNodes /
+//     editableNodes) or as a raw Anthropic Messages API response
+//     ({ content: [{ type: 'text', text: '<json array string>' }] })
+//
+// Adjust the two lines below if your upstream fields are named differently.
+const input = $input.first().json;
+const resumeTree = input.resumeTree;
+
+const editsRaw = input.content?.[0]?.text ?? input.editedNodes ?? input.editableNodes;
+const edits = typeof editsRaw === 'string' ? JSON.parse(editsRaw) : (editsRaw ?? []);
+
+const editsById = new Map(edits.map(edit => [edit.id, edit]));
+
+const applyEdits = nodes => (nodes ?? []).map(node => {
+  if (!node) return node;
+
+  const edit = editsById.get(node.id);
+
+  if (edit?.text !== undefined) {
+    return { ...node, children: [{ text: edit.text }] };
+  }
+
+  if (edit?.children) {
+    const mergedChildren = node.children.map((child, i) => {
+      const editedChild = edit.children[i];
+      return editedChild ? { ...child, children: [{ text: editedChild.text }] } : child;
+    });
+    return { ...node, children: mergedChildren };
+  }
+
+  if (node.children?.length) {
+    return { ...node, children: applyEdits(node.children) };
+  }
+
+  return node;
+});
+
+const mergedTree = { ...resumeTree, body: applyEdits(resumeTree.body) };
+
+// ---- Render the merged tree to HTML ----
+const html = jsonToHtml(mergedTree);
+
+return [{ json: { html, resumeTree: mergedTree } }];
