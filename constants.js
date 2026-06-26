@@ -35,6 +35,7 @@ export const CLASS_TYPE_TAG_MAP = {
 export const CLASS_TYPE_TAGS = new Set(Object.values(CLASS_TYPE_TAG_MAP))
 
 export const INLINE_STYLES = {
+  'resume-body': 'font-family:Georgia,serif;margin:0;padding: 2.25rem 1rem;background: #ffffff;color:#1a1a1a);font-size: 11pt;line-height: 1.45;',
   name: 'font-family:Georgia,serif;font-size:24pt;font-weight:bold;letter-spacing:0.02em;text-align:center;',
   title: 'font-family:Georgia,serif;font-size:12pt;font-style:italic;color:#444444;text-align:center;',
   contact: 'font-family:Georgia,serif;font-size:10pt;color:#444444;text-align:center;',
