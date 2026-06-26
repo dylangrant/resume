@@ -101,6 +101,7 @@
         "id": "skills-heading",
         "className": "section-heading",
         "editable": false,
+        "reorderable": false,
         "children": [
           {
             "text": "Skills"
