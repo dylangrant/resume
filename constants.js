@@ -34,7 +34,7 @@ export const CLASS_TYPE_TAG_MAP = {
 
 export const CLASS_TYPE_TAGS = new Set(Object.values(CLASS_TYPE_TAG_MAP))
 
-const INLINE_STYLES = {
+export const INLINE_STYLES = {
   resume: 'font-family:Georgia;font-size:11pt;line-height:1.45;margin:0 auto;padding:0 1rem;background:#ffffff;color:#1a1a1a;line-height:1.45;max-width:7.5in;',
   name: 'font-family:Georgia;font-size:24pt;font-weight:bold;letter-spacing:0.02em;text-align:center;margin:0;',
   title: 'font-family:Georgia;font-size:12pt;font-style:italic;color:#444444;text-align:center;margin:0.2rem 0;',

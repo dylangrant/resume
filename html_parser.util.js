@@ -81,7 +81,7 @@ const elementToNode = el => {
   }
 
   if (el.name === 'style') {
-    node.children = [{ 
+    node.children = [{
       text: getTextContent(el),
       type: 'style',
       'data-editable': false,
@@ -106,6 +106,43 @@ const findChildTag = (parent, tagName) => (parent.children || []).find(child => 
 
 export const htmlToOneLine = html => html.replace(/\n/g, '').replace(/\s+/g, ' ').trim()
 
+const _walkEditable = (nodes, reorderableIds, parentContext) => {
+  const result = []
+
+  for (const node of nodes ?? []) {
+    if (!node) continue
+
+    const context = node.context ?? parentContext
+    const hasReorderableChildren = !!node.hasReorderable
+    const isReorderable = !!node.reorderable
+    const isEditable = !!node.editable
+
+    if (hasReorderableChildren || isReorderable || isEditable) {
+      if (hasReorderableChildren) {
+        reorderableIds.add(node.id)
+        result.push({ id: node.id, children: _walkEditable(node.children ?? [], reorderableIds, context) })
+      } else if (node.children?.length) {
+        const textChild = node.children.find(child => child?.text !== undefined)
+        if (textChild) {
+          result.push({ id: node.id, text: textChild.text })
+        } else {
+          result.push({ id: node.id, children: _walkEditable(node.children, reorderableIds, context) })
+        }
+      }
+    } else if (node.children?.length) {
+      result.push(..._walkEditable(node.children, reorderableIds, context))
+    }
+  }
+
+  return result
+}
+
+export const extractEditable = parsedDoc => {
+  const reorderableIds = new Set()
+  const editableNodes = _walkEditable(parsedDoc?.body ?? [], reorderableIds, undefined)
+  return { editableNodes, reorderableIds: Array.from(reorderableIds) }
+}
+
 export const parseHtmlToJson = html => {
   const document = parseDocument(html)
   const htmlNode = (document.children || []).find(child => child.type === 'tag' && child.name === 'html')
@@ -124,3 +161,4 @@ export const parseHtmlToJson = html => {
     body: bodyNode ? buildChildren(bodyNode) : [],
   }
 }
+

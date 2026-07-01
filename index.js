@@ -1,20 +1,22 @@
 import { readFileSync, writeFileSync } from 'fs'
 
-import { parseHtmlToJson } from './html_parser.util.js'
+import { parseHtmlToJson, extractEditable } from './html_parser.util.js'
 import { jsonToHtml } from './json_parser.util.js'
 
 const [command, arg1, arg2] = process.argv.slice(2)
 
 const toJson = (htmlPath = 'index.html', jsonPath = 'resume.json') => {
   const html = readFileSync(htmlPath, 'utf-8')
-  const json = parseHtmlToJson(html)
+  const rawTree = parseHtmlToJson(html)
+  const { editableNodes, reorderableIds } = extractEditable(rawTree)
+  const json = { rawTree, editableNodes, reorderableIds }
   writeFileSync(jsonPath, `${JSON.stringify(json, null, 2)}\n`)
   console.log(`Wrote ${jsonPath} from ${htmlPath}`)
 }
 
 const toHtml = (jsonPath = 'resume.json', htmlPath = 'index.html') => {
   const json = JSON.parse(readFileSync(jsonPath, 'utf-8'))
-  const html = jsonToHtml(json, 'developmentMode')
+  const html = jsonToHtml(json.rawTree ?? json, 'developmentMode')
   writeFileSync(htmlPath, html)
   console.log(`Wrote ${htmlPath} from ${jsonPath}`)
 }

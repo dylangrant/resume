@@ -1,22 +1,25 @@
 // Walk the resume JSON tree and extract editable/reorderable nodes
-// Input: either raw array from GitHub, or { data: [...] } object from app
-// Job context comes from the Split Out node
+// Input: job context from Split Out node; resume data via data property or raw tree
+// Outputs: editableNodes, reorderableIds (side-channel for Merge), rawTree
 
-const rawInput = $input.first().json;
-
-// Handle both { data: [...] } and raw array
-const resumeTree = Array.isArray(rawInput) ? rawInput : rawInput?.data ?? [];
+const jobContext = $input.item.json;
 
 const {
   id,
   name,
   property_role_title,
-  property_description,
-  property_company_research,
-  property_fit_reasoning,
-  property_gap_flags,
-  property_keywords,
-} = rawInput;
+  property_job_summary,
+  property_insights_summary,
+  data,
+} = jobContext;
+
+// Handle raw input array or encapsulated data properties from Extract from File
+const rawTree = data ?? jobContext;
+const resumeTree = rawTree?.body ?? [];
+
+// reorderableIds is a side-channel so Merge can tell reorderable nodes apart
+// from text nodes without sending that bookkeeping to the model.
+const reorderableIds = new Set();
 
 function extractEditable(nodes, parentContext) {
   const result = [];
@@ -30,26 +33,20 @@ function extractEditable(nodes, parentContext) {
     const hasReorderableChildren = !!node?.hasReorderable;
 
     if (hasReorderableChildren || isReorderable || isEditable) {
-      const entry = {
-        id: node.id,
-        isReorderable,
-        isEditable,
-        type: node.type,
-        ...(context !== undefined && { context }),
-      };
-
       if (hasReorderableChildren) {
-        entry.children = extractEditable(node.children ?? [], context);
+        reorderableIds.add(node.id);
+        result.push({
+          id: node.id,
+          children: extractEditable(node.children ?? [], context)
+        });
       } else if (node.children?.length) {
         const textChild = node.children.find(child => child?.text !== undefined);
         if (textChild) {
-          entry.text = textChild.text;
+          result.push({ id: node.id, text: textChild.text });
         } else {
-          entry.children = extractEditable(node.children, context);
+          result.push({ id: node.id, children: extractEditable(node.children, context) });
         }
       }
-
-      result.push(entry);
     } else if (node.children?.length) {
       result.push(...extractEditable(node.children, context));
     }
@@ -60,17 +57,19 @@ function extractEditable(nodes, parentContext) {
 
 const editableNodes = extractEditable(resumeTree);
 
-return [{
+if (editableNodes.length === 0) {
+  throw new Error(`Filter Editable Nodes: got 0 editable nodes. rawTree keys: ${Object.keys(rawTree).join(", ")}`);
+}
+
+return {
   json: {
     editableNodes,
-    resumeTree,
+    reorderableIds: Array.from(reorderableIds),
+    rawTree,
     id,
     name,
     property_role_title,
-    property_description,
-    property_company_research,
-    property_fit_reasoning,
-    property_gap_flags,
-    property_keywords,
+    property_job_summary,
+    property_insights_summary
   }
-}];
+};
