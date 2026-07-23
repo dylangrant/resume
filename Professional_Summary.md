@@ -20,7 +20,7 @@ Alongside his EM career, Dylan is the solo founder of ph27 LLC (a Wyoming single
 
 This dual track, running a company while pursuing EM roles, gives him direct, current experience with technical decision-making, hiring, product strategy, and the operational realities engineering leaders are accountable for, rather than that experience going stale in a purely managerial track.
 
-**Core Stack**
+**Core Tech Stack**
 
 React, Node.js, GraphQL. These form the backbone of both his hands-on product work and the technical fluency he brings to engineering leadership conversations.
 
@@ -30,6 +30,10 @@ React, Node.js, GraphQL. These form the backbone of both his hands-on product wo
 - **Backend**: Node.js, Fastify, Mercurius, GraphQL, Neo4j (with neo4j-driver), Rambda, Nanoid, Jest
 - **Infrastructure and Automation**: Docker-based local orchestration (OrbStack), n8n workflow automation, self-hosted AI tooling via Ollama, Anthropic Claude API integration, voice/telephony pipelines (Pipecat, Twilio, Whisper)
 - **Data**: Neo4j graph databases, Notion as a structured data layer for internal tooling
+
+**Soft Skills**
+
+Team building, mentorship and coaching, cross-functional collaboration, stakeholder communication, conflict resolution, hiring and interviewing, performance management, technical strategy and roadmapping, prioritization under ambiguity, servant leadership, change management, remote team leadership
 
 **Known Gaps**
 
