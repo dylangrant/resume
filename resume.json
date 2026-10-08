@@ -974,7 +974,7 @@
                     "context": "Hulu | Team Lead",
                     "children": [
                       {
-                        "text": "Led a team of 6 Globant engineers on Hulu's Living Room Platform, coaching and coordinating delivery of performant, cross-device UI components for OTT streaming experiences. Drove implementation of TypeScript across the platform."
+                        "text": "Led a team of 6 Globant engineers on Hulu's “Living Room” platform, coaching and coordinating delivery of performant, cross-device UI components for OTT streaming experiences. Drove implementation of TypeScript across the platform."
                       }
                     ]
                   }
@@ -1205,7 +1205,7 @@
     },
     {
       "id": "job-hulu-desc",
-      "text": "Led a team of 6 Globant engineers on Hulu's Living Room Platform, coaching and coordinating delivery of performant, cross-device UI components for OTT streaming experiences. Drove implementation of TypeScript across the platform."
+      "text": "Led a team of 6 Globant engineers on Hulu's “Living Room” platform, coaching and coordinating delivery of performant, cross-device UI components for OTT streaming experiences. Drove implementation of TypeScript across the platform."
     }
   ],
   "reorderableIds": [
