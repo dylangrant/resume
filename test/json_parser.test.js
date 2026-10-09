@@ -3,7 +3,7 @@ import assert from 'node:assert/strict'
 import { readFileSync } from 'fs'
 
 import { htmlToOneLine, parseHtmlToJson } from '../html_parser.util.js'
-import { jsonToHtml } from '../json_parser.util.js'
+import { formatCss, jsonToHtml } from '../json_parser.util.js'
 
 const doc = body => ({ type: 'document', lang: 'en', head: [{ type: 'title', children: [{ text: 'R' }] }], body })
 
@@ -61,6 +61,29 @@ describe('jsonToHtml', () => {
   test('export mode omits style attr for unstyled nodes', () => {
     const html = jsonToHtml(doc([{ type: 'paragraph', children: [{ text: 'a' }] }]))
     assert.match(html, /<p>a<\/p>/)
+  })
+})
+
+describe('formatCss', () => {
+  test('one declaration per line, blank line between rules, comment attached', () => {
+    assert.equal(
+      formatCss('a { color: red; margin: 0; } /* B */ .b { x: 1 }', '  '),
+      '  a {\n    color: red;\n    margin: 0;\n  }\n\n  /* B */\n  .b {\n    x: 1;\n  }',
+    )
+  })
+
+  test('indents nested at-rules without trailing blank lines', () => {
+    assert.equal(
+      formatCss('@media print { a { x: 1; } b { y: 2; } }'),
+      '@media print {\n  a {\n    x: 1;\n  }\n\n  b {\n    y: 2;\n  }\n}',
+    )
+  })
+
+  test('to-html reproduces index.html <head> and <style> exactly', () => {
+    const original = readFileSync(new URL('../index.html', import.meta.url), 'utf8')
+    const regenerated = jsonToHtml(parseHtmlToJson(original), 'developmentMode')
+    const upToStyleEnd = html => html.slice(0, html.indexOf('</style>'))
+    assert.equal(upToStyleEnd(regenerated), upToStyleEnd(original))
   })
 })
 
