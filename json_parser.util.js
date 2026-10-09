@@ -77,7 +77,7 @@ const renderNode = ({ node, depth, mode }) => {
   const attrs = buildAttrs({ node, mode })
 
   if (node.type === 'style') {
-    return `${indent}<style${attrs}>${escapeHtml(node.children?.[0]?.text || '')}</style>`
+    return `${indent}<style${attrs}>\n${indent}  ${escapeHtml(node.children?.[0]?.text || '')}\n${indent}</style>`
   }
 
   const isTextLeaf = node.children?.length === 1 && node.children[0].text !== undefined

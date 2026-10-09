@@ -65,9 +65,7 @@ describe('jsonToHtml', () => {
 })
 
 describe('round trip', () => {
-  test('index.html -> json -> html is stable', {
-    todo: 'index.html has <br />, trailing spaces in skills labels, and leading whitespace in <style> that the parser normalizes',
-  }, () => {
+  test('index.html -> json -> html is stable', () => {
     const original = readFileSync(new URL('../index.html', import.meta.url), 'utf8')
     const regenerated = jsonToHtml(parseHtmlToJson(original), 'developmentMode')
     assert.equal(htmlToOneLine(regenerated), htmlToOneLine(original))
