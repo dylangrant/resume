@@ -145,171 +145,6 @@
           },
           {
             "type": "section",
-            "id": "skills",
-            "className": "section",
-            "hasReorderable": true,
-            "children": [
-              {
-                "type": "heading-two",
-                "id": "skills-heading",
-                "className": "section-heading",
-                "editable": false,
-                "reorderable": false,
-                "children": [
-                  {
-                    "text": "Skills"
-                  }
-                ]
-              },
-              {
-                "type": "skills-group",
-                "id": "skills-leadership",
-                "reorderable": true,
-                "children": [
-                  {
-                    "type": "heading-three",
-                    "id": "skills-leadership-label",
-                    "className": "skills-label",
-                    "editable": false,
-                    "children": [
-                      {
-                        "text": "Engineering Leadership and Delivery:"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "paragraph",
-                    "id": "skills-leadership-body",
-                    "className": "body-text",
-                    "editable": true,
-                    "children": [
-                      {
-                        "text": "Team Building, Organizational Design, Hiring and Scaling Teams, Performance Management, Career Development, Coaching and Mentorship, Technical Roadmapping, Delivery Predictability, Stakeholder Alignment, Agile Delivery, Scrum, Sprint Planning, Incident Management, Headcount Planning"
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "skills-group",
-                "id": "skills-product",
-                "reorderable": true,
-                "children": [
-                  {
-                    "type": "heading-three",
-                    "id": "skills-product-label",
-                    "className": "skills-label",
-                    "editable": false,
-                    "children": [
-                      {
-                        "text": "Product and Business Impact:"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "paragraph",
-                    "id": "skills-product-body",
-                    "className": "body-text",
-                    "editable": true,
-                    "children": [
-                      {
-                        "text": "Cross-Functional Leadership, Roadmap Ownership, Engineering Metrics, Revenue-Focused Delivery, Process Improvement"
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "skills-group",
-                "id": "skills-technical",
-                "reorderable": true,
-                "children": [
-                  {
-                    "type": "heading-three",
-                    "id": "skills-technical-label",
-                    "className": "skills-label",
-                    "editable": false,
-                    "children": [
-                      {
-                        "text": "Technical Strategy and Architecture:"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "paragraph",
-                    "id": "skills-technical-body",
-                    "className": "body-text",
-                    "editable": true,
-                    "children": [
-                      {
-                        "text": "Frontend Architecture, Design Systems, System Design, Scalability, Performance Optimization, Technical Debt Management"
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "skills-group",
-                "id": "skills-stack",
-                "reorderable": true,
-                "children": [
-                  {
-                    "type": "heading-three",
-                    "id": "skills-stack-label",
-                    "className": "skills-label",
-                    "editable": false,
-                    "children": [
-                      {
-                        "text": "Technology Stack:"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "paragraph",
-                    "id": "skills-stack-body",
-                    "className": "body-text",
-                    "editable": true,
-                    "children": [
-                      {
-                        "text": "JavaScript, TypeScript, React, Node.js, GraphQL, REST APIs, Neo4j, MongoDB, Postgres"
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "type": "skills-group",
-                "id": "skills-infra",
-                "reorderable": true,
-                "children": [
-                  {
-                    "type": "heading-three",
-                    "id": "skills-infra-label",
-                    "className": "skills-label",
-                    "editable": false,
-                    "children": [
-                      {
-                        "text": "Infrastructure and Tooling:"
-                      }
-                    ]
-                  },
-                  {
-                    "type": "paragraph",
-                    "id": "skills-infra-body",
-                    "className": "body-text",
-                    "editable": true,
-                    "children": [
-                      {
-                        "text": "CI/CD (GitHub Actions), Azure, AWS, Docker, Vercel, Render, Observability & Monitoring, Analytics (Google Analytics, PostHog), Product Analytics (Mixpanel, Userpilot), AI-Assisted Development (Copilot, Codex, Claude), Workflow Automation (n8n), Figma"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "type": "section",
             "id": "experience",
             "className": "section",
             "children": [
@@ -735,72 +570,167 @@
                     ]
                   }
                 ]
+              }
+            ]
+          },
+          {
+            "type": "section",
+            "id": "skills",
+            "className": "section",
+            "hasReorderable": true,
+            "children": [
+              {
+                "type": "heading-two",
+                "id": "skills-heading",
+                "className": "section-heading",
+                "editable": false,
+                "reorderable": false,
+                "children": [
+                  {
+                    "text": "Skills"
+                  }
+                ]
               },
               {
-                "type": "job",
-                "id": "job-talentful",
+                "type": "skills-group",
+                "id": "skills-leadership",
+                "reorderable": true,
                 "children": [
                   {
                     "type": "heading-three",
-                    "id": "job-talentful-company",
-                    "className": "job-company",
+                    "id": "skills-leadership-label",
+                    "className": "skills-label",
                     "editable": false,
                     "children": [
                       {
-                        "text": "Talentful"
+                        "text": "Engineering Leadership and Delivery:"
                       }
                     ]
                   },
                   {
                     "type": "paragraph",
-                    "id": "job-talentful-role",
-                    "className": "job-role",
+                    "id": "skills-leadership-body",
+                    "className": "body-text",
+                    "editable": true,
+                    "children": [
+                      {
+                        "text": "Team Building, Organizational Design, Hiring and Scaling Teams, Performance Management, Career Development, Coaching and Mentorship, Technical Roadmapping, Delivery Predictability, Stakeholder Alignment, Agile Delivery, Scrum, Sprint Planning, Incident Management, Headcount Planning"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "skills-group",
+                "id": "skills-product",
+                "reorderable": true,
+                "children": [
+                  {
+                    "type": "heading-three",
+                    "id": "skills-product-label",
+                    "className": "skills-label",
                     "editable": false,
                     "children": [
                       {
-                        "text": "Senior Software Engineer (Contract)"
+                        "text": "Product and Business Impact:"
                       }
                     ]
                   },
                   {
                     "type": "paragraph",
-                    "id": "job-talentful-dates",
-                    "className": "job-dates",
+                    "id": "skills-product-body",
+                    "className": "body-text",
+                    "editable": true,
+                    "children": [
+                      {
+                        "text": "Cross-Functional Leadership, Roadmap Ownership, Engineering Metrics, Revenue-Focused Delivery, Process Improvement"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "skills-group",
+                "id": "skills-technical",
+                "reorderable": true,
+                "children": [
+                  {
+                    "type": "heading-three",
+                    "id": "skills-technical-label",
+                    "className": "skills-label",
                     "editable": false,
                     "children": [
                       {
-                        "text": "Jan 2025 - Mar 2025"
+                        "text": "Technical Strategy and Architecture:"
                       }
                     ]
                   },
                   {
-                    "type": "bulleted-list",
-                    "id": "job-talentful-bullets",
-                    "className": "job-bullets",
-                    "hasReorderable": true,
-                    "context": "Talentful | Senior Software Engineer (Contract)",
+                    "type": "paragraph",
+                    "id": "skills-technical-body",
+                    "className": "body-text",
+                    "editable": true,
                     "children": [
                       {
-                        "type": "list-item",
-                        "id": "job-talentful-bullet-1",
-                        "editable": true,
-                        "reorderable": true,
-                        "children": [
-                          {
-                            "text": "Partnered directly with the CTO to deliver high-impact React features and expand automated test coverage by 25% in support of a critical platform launch, improving release confidence under tight timelines."
-                          }
-                        ]
-                      },
+                        "text": "Frontend Architecture, Design Systems, System Design, Scalability, Performance Optimization, Technical Debt Management"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "skills-group",
+                "id": "skills-stack",
+                "reorderable": true,
+                "children": [
+                  {
+                    "type": "heading-three",
+                    "id": "skills-stack-label",
+                    "className": "skills-label",
+                    "editable": false,
+                    "children": [
                       {
-                        "type": "list-item",
-                        "id": "job-talentful-bullet-2",
-                        "editable": true,
-                        "reorderable": true,
-                        "children": [
-                          {
-                            "text": "Improved CI/CD pipelines to enable per-feature deployments, reducing merge friction and unblocking engineers by ensuring passing changes were reliably deployed."
-                          }
-                        ]
+                        "text": "Technology Stack:"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "id": "skills-stack-body",
+                    "className": "body-text",
+                    "editable": true,
+                    "children": [
+                      {
+                        "text": "JavaScript, TypeScript, React, Node.js, GraphQL, REST APIs, Neo4j, MongoDB, Postgres"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "skills-group",
+                "id": "skills-infra",
+                "reorderable": true,
+                "children": [
+                  {
+                    "type": "heading-three",
+                    "id": "skills-infra-label",
+                    "className": "skills-label",
+                    "editable": false,
+                    "children": [
+                      {
+                        "text": "Infrastructure and Tooling:"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "id": "skills-infra-body",
+                    "className": "body-text",
+                    "editable": true,
+                    "children": [
+                      {
+                        "text": "CI/CD (GitHub Actions), Azure, AWS, Docker, Vercel, Render, Observability & Monitoring, Analytics (Google Analytics, PostHog), Product Analytics (Mixpanel, Userpilot), AI-Assisted Development (Copilot, Codex, Claude), Workflow Automation (n8n), Figma"
                       }
                     ]
                   }
@@ -1005,7 +935,7 @@
                 "editable": false,
                 "children": [
                   {
-                    "text": "BA in Economics, Willamette University"
+                    "text": "Bachelors of Arts in Economics, Willamette University"
                   }
                 ]
               }
@@ -1031,56 +961,6 @@
     {
       "id": "summary-p3",
       "text": "Balances technical depth with organizational leadership, driving architectural direction, improving delivery predictability, and building teams that consistently raise the bar."
-    },
-    {
-      "id": "skills",
-      "children": [
-        {
-          "id": "skills-leadership",
-          "children": [
-            {
-              "id": "skills-leadership-body",
-              "text": "Team Building, Organizational Design, Hiring and Scaling Teams, Performance Management, Career Development, Coaching and Mentorship, Technical Roadmapping, Delivery Predictability, Stakeholder Alignment, Agile Delivery, Scrum, Sprint Planning, Incident Management, Headcount Planning"
-            }
-          ]
-        },
-        {
-          "id": "skills-product",
-          "children": [
-            {
-              "id": "skills-product-body",
-              "text": "Cross-Functional Leadership, Roadmap Ownership, Engineering Metrics, Revenue-Focused Delivery, Process Improvement"
-            }
-          ]
-        },
-        {
-          "id": "skills-technical",
-          "children": [
-            {
-              "id": "skills-technical-body",
-              "text": "Frontend Architecture, Design Systems, System Design, Scalability, Performance Optimization, Technical Debt Management"
-            }
-          ]
-        },
-        {
-          "id": "skills-stack",
-          "children": [
-            {
-              "id": "skills-stack-body",
-              "text": "JavaScript, TypeScript, React, Node.js, GraphQL, REST APIs, Neo4j, MongoDB, Postgres"
-            }
-          ]
-        },
-        {
-          "id": "skills-infra",
-          "children": [
-            {
-              "id": "skills-infra-body",
-              "text": "CI/CD (GitHub Actions), Azure, AWS, Docker, Vercel, Render, Observability & Monitoring, Analytics (Google Analytics, PostHog), Product Analytics (Mixpanel, Userpilot), AI-Assisted Development (Copilot, Codex, Claude), Workflow Automation (n8n), Figma"
-            }
-          ]
-        }
-      ]
     },
     {
       "id": "job-uguru-bullets",
@@ -1183,15 +1063,52 @@
       ]
     },
     {
-      "id": "job-talentful-bullets",
+      "id": "skills",
       "children": [
         {
-          "id": "job-talentful-bullet-1",
-          "text": "Partnered directly with the CTO to deliver high-impact React features and expand automated test coverage by 25% in support of a critical platform launch, improving release confidence under tight timelines."
+          "id": "skills-leadership",
+          "children": [
+            {
+              "id": "skills-leadership-body",
+              "text": "Team Building, Organizational Design, Hiring and Scaling Teams, Performance Management, Career Development, Coaching and Mentorship, Technical Roadmapping, Delivery Predictability, Stakeholder Alignment, Agile Delivery, Scrum, Sprint Planning, Incident Management, Headcount Planning"
+            }
+          ]
         },
         {
-          "id": "job-talentful-bullet-2",
-          "text": "Improved CI/CD pipelines to enable per-feature deployments, reducing merge friction and unblocking engineers by ensuring passing changes were reliably deployed."
+          "id": "skills-product",
+          "children": [
+            {
+              "id": "skills-product-body",
+              "text": "Cross-Functional Leadership, Roadmap Ownership, Engineering Metrics, Revenue-Focused Delivery, Process Improvement"
+            }
+          ]
+        },
+        {
+          "id": "skills-technical",
+          "children": [
+            {
+              "id": "skills-technical-body",
+              "text": "Frontend Architecture, Design Systems, System Design, Scalability, Performance Optimization, Technical Debt Management"
+            }
+          ]
+        },
+        {
+          "id": "skills-stack",
+          "children": [
+            {
+              "id": "skills-stack-body",
+              "text": "JavaScript, TypeScript, React, Node.js, GraphQL, REST APIs, Neo4j, MongoDB, Postgres"
+            }
+          ]
+        },
+        {
+          "id": "skills-infra",
+          "children": [
+            {
+              "id": "skills-infra-body",
+              "text": "CI/CD (GitHub Actions), Azure, AWS, Docker, Vercel, Render, Observability & Monitoring, Analytics (Google Analytics, PostHog), Product Analytics (Mixpanel, Userpilot), AI-Assisted Development (Copilot, Codex, Claude), Workflow Automation (n8n), Figma"
+            }
+          ]
         }
       ]
     },
@@ -1209,11 +1126,10 @@
     }
   ],
   "reorderableIds": [
-    "skills",
     "job-uguru-bullets",
     "job-talkoot-bullets",
     "job-minnesota-state-bullets",
     "job-ph27-bullets",
-    "job-talentful-bullets"
+    "skills"
   ]
 }
