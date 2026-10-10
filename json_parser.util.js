@@ -11,6 +11,47 @@ const escapeHtml = text => text
   .replace(/</g, '&lt;')
   .replace(/>/g, '&gt;')
 
+// Pretty-prints whitespace-collapsed CSS: one declaration per line, nested
+// blocks indented, a blank line between rules, comments attached to the
+// rule that follows them.
+export const formatCss = (css, baseIndent = '') => {
+  const lines = []
+  let depth = 0
+  let buffer = ''
+  const pad = () => baseIndent + '  '.repeat(depth)
+  const flush = suffix => {
+    const text = buffer.trim()
+    buffer = ''
+    if (text || suffix) lines.push(`${pad()}${text}${suffix}`)
+  }
+
+  for (let i = 0; i < css.length; i++) {
+    if (css.startsWith('/*', i)) {
+      const end = css.indexOf('*/', i + 2)
+      const stop = end === -1 ? css.length : end + 2
+      buffer = ''
+      lines.push(`${pad()}${css.slice(i, stop).trim()}`)
+      i = stop - 1
+    } else if (css[i] === '{') {
+      flush(' {')
+      depth++
+    } else if (css[i] === ';') {
+      flush(';')
+    } else if (css[i] === '}') {
+      if (buffer.trim()) flush(';')
+      depth = Math.max(0, depth - 1)
+      lines.push(`${pad()}}`)
+      const next = css.slice(i + 1).trimStart()[0]
+      if (next && next !== '}') lines.push('')
+    } else {
+      buffer += css[i]
+    }
+  }
+  flush('')
+
+  return lines.join('\n')
+}
+
 const resolveTag = type => CLASS_TYPE_TAG_MAP[type] || TYPE_TAG_MAP[type] || type
 
 const buildClassList = node => CLASS_TYPE_TAG_MAP[node.type]
@@ -77,7 +118,7 @@ const renderNode = ({ node, depth, mode }) => {
   const attrs = buildAttrs({ node, mode })
 
   if (node.type === 'style') {
-    return `${indent}<style${attrs}>${escapeHtml(node.children?.[0]?.text || '')}</style>`
+    return `${indent}<style${attrs}>\n${formatCss(escapeHtml(node.children?.[0]?.text || ''), `${indent}  `)}\n${indent}</style>`
   }
 
   const isTextLeaf = node.children?.length === 1 && node.children[0].text !== undefined
@@ -103,11 +144,11 @@ const renderChildren = ({ nodes, depth, forceBlank = false, mode }) => {
 
 const renderDocument = (documentNode, mode) => {
   const langAttr = documentNode.lang ? ` lang="${documentNode.lang}"` : ''
-  const headContent = renderChildren({ nodes: documentNode.head || [], depth: 2, mode })
+  const headContent = renderChildren({ nodes: documentNode.head || [], depth: 1, mode })
   const bodyContent = renderChildren({
     nodes: documentNode.body || [],
     forceBlank: true,
-    depth: 2,
+    depth: 1,
     mode,
   })
 
